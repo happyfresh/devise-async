@@ -8,7 +8,7 @@ module Devise
         def enqueue(method, resource_class, resource_id, *args)
           # convert args to strings and hashes with string keys before passing to backend
           args = stringify_args args
-          backend_class.enqueue(method, resource_class, resource_id, *args)
+          backend_class.enqueue(method.to_s, resource_class.to_s, resource_id, *args)
         end
 
         private
