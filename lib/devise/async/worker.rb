@@ -7,7 +7,7 @@ module Devise
         # to the desired backend.
         def enqueue(method, resource_class, resource_id, *args)
           # convert args to strings and hashes with string keys before passing to backend
-          args = stringify_args args
+          args = args.as_json
           backend_class.enqueue(method.to_s, resource_class.to_s, resource_id, *args)
         end
 
